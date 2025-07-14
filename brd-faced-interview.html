@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,50 +13,75 @@
       margin: 0;
       padding-top: 80px;
     }
-    .container {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
-      margin: 2rem auto;
-      max-width: 1000px;
-    }
-    h2 {
-      margin-top: 2.5rem;
-    }
-    .contents {
-      background: #e1f5fe;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-    }
-    .contents h4 {
-      margin-bottom: 1rem;
-    }
-    .contents a {
-      display: block;
-      color: #0277bd;
-      text-decoration: none;
-      margin-bottom: 5px;
-    }
-    .contents a:hover {
-      text-decoration: underline;
-    }
     .sticky-header {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       z-index: 999;
       background-color: #ffffff;
       border-bottom: 1px solid #dee2e6;
       padding: 1rem 2rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .sticky-header h1 {
       font-size: 20px;
       margin: 0;
       color: #1565c0;
+    }
+    .home-btn {
+      font-size: 14px;
+      padding: 6px 12px;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .home-btn:hover {
+      background-color: #0b5ed7;
+    }
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    .sidebar {
+      flex: 0 0 250px;
+      background: #e1f5fe;
+      padding: 1rem;
+      border-radius: 10px;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+    .sidebar h4 {
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+    .sidebar a {
+      display: block;
+      color: #0277bd;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+    }
+    h2 {
+      margin-top: 2.5rem;
     }
     #scrollTopBtn {
       display: none;
@@ -78,18 +102,31 @@
     #scrollTopBtn:hover {
       background-color: #0b5ed7;
     }
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: relative;
+        top: auto;
+      }
+    }
   </style>
 </head>
 <body>
 
 <div class="sticky-header">
   <h1>📄 BRD – Face D Interview</h1>
+  <a class="home-btn" href="index.html">🏠 Home</a>
 </div>
 
+<!-- Scroll-to-Top Button -->
 <button id="scrollTopBtn" onclick="scrollToTop()" title="Scroll to top">↑</button>
 
-<div class="container">
-  <div class="contents">
+<div class="layout">
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
     <h4>📚 Contents</h4>
     <a href="#summary">Executive Summary</a>
     <a href="#description">Project Description</a>
@@ -100,50 +137,53 @@
     <a href="#criteria">Acceptance Criteria</a>
   </div>
 
-  <h2 id="summary">📌 Executive Summary</h2>
-  <p>This document defines the system that supports Face D Interview—an AI-enabled platform for candidate assessments and virtual interviews. It aims to simplify hiring through online testing and live evaluations across roles.</p>
+  <!-- Main Content -->
+  <div class="content">
+    <h2 id="summary">📌 Executive Summary</h2>
+    <p>This document defines the system that supports Face D Interview—an AI-enabled platform for candidate assessments and virtual interviews. It aims to simplify hiring through online testing and live evaluations across roles.</p>
 
-  <h2 id="description">🔍 Project Description</h2>
-  <ul>
-    <li>Online platform for assessments and live interviews</li>
-    <li>Designed for both technical and non-technical hiring</li>
-    <li>Supports registration, login, candidate management, and dashboards</li>
-  </ul>
+    <h2 id="description">🔍 Project Description</h2>
+    <ul>
+      <li>Online platform for assessments and live interviews</li>
+      <li>Designed for both technical and non-technical hiring</li>
+      <li>Supports registration, login, candidate management, and dashboards</li>
+    </ul>
 
-  <h2 id="scope">🎯 Project Scope</h2>
-  <p>Includes registration, dashboard, assessments, interviews, reports, and feedback management. Covers candidate verification, system readiness, and task evaluations.</p>
+    <h2 id="scope">🎯 Project Scope</h2>
+    <p>Includes registration, dashboard, assessments, interviews, reports, and feedback management. Covers candidate verification, system readiness, and task evaluations.</p>
 
-  <h2 id="requirements">📋 Requirements Overview</h2>
-  <ul>
-    <li>Login & Signup with Email, Password, and third-party integrations</li>
-    <li>Assessment creation, invitation, tracking and completion logic</li>
-    <li>Live interview sessions with task-based evaluations</li>
-    <li>System validations, auto-save, and feedback workflows</li>
-  </ul>
+    <h2 id="requirements">📋 Requirements Overview</h2>
+    <ul>
+      <li>Login & Signup with Email, Password, and third-party integrations</li>
+      <li>Assessment creation, invitation, tracking and completion logic</li>
+      <li>Live interview sessions with task-based evaluations</li>
+      <li>System validations, auto-save, and feedback workflows</li>
+    </ul>
 
-  <h2 id="assessment">🧪 Assessment Platform</h2>
-  <ul>
-    <li>Create and manage assessments with settings like proctoring and time limits</li>
-    <li>Track candidate performance: Invited, Submitted, Evaluated, Shortlisted</li>
-    <li>Features include MCQs, coding tasks, diagrams, and audio-based questions</li>
-    <li>Secure configurations, drafts, filters, and search tools</li>
-  </ul>
+    <h2 id="assessment">🧪 Assessment Platform</h2>
+    <ul>
+      <li>Create and manage assessments with settings like proctoring and time limits</li>
+      <li>Track candidate performance: Invited, Submitted, Evaluated, Shortlisted</li>
+      <li>Features include MCQs, coding tasks, diagrams, and audio-based questions</li>
+      <li>Secure configurations, drafts, filters, and search tools</li>
+    </ul>
 
-  <h2 id="interview">🎥 Interview Flow</h2>
-  <ul>
-    <li>Pre-interview system check (audio/video)</li>
-    <li>Live webcam verification and document uploads</li>
-    <li>Real-time task execution (coding, UI, video answers)</li>
-    <li>Monitoring and reporting of activity and scores</li>
-  </ul>
+    <h2 id="interview">🎥 Interview Flow</h2>
+    <ul>
+      <li>Pre-interview system check (audio/video)</li>
+      <li>Live webcam verification and document uploads</li>
+      <li>Real-time task execution (coding, UI, video answers)</li>
+      <li>Monitoring and reporting of activity and scores</li>
+    </ul>
 
-  <h2 id="criteria">✅ Acceptance Criteria</h2>
-  <ul>
-    <li>Two-step login, verification code, and secure access</li>
-    <li>Interactive dashboard with status cards and usage metrics</li>
-    <li>Assessment creation with invite/send controls and restrictions</li>
-    <li>Structured reports, audit trails, and downloadable feedback</li>
-  </ul>
+    <h2 id="criteria">✅ Acceptance Criteria</h2>
+    <ul>
+      <li>Two-step login, verification code, and secure access</li>
+      <li>Interactive dashboard with status cards and usage metrics</li>
+      <li>Assessment creation with invite/send controls and restrictions</li>
+      <li>Structured reports, audit trails, and downloadable feedback</li>
+    </ul>
+  </div>
 </div>
 
 <script>
